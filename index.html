@@ -363,7 +363,142 @@ footer { background:var(--dark); padding:48px 56px; display:flex; align-items:ce
 .footer-links a:hover { color:var(--green-light); }
 .footer-copy { font-size:12px; color:rgba(255,255,255,0.2); width:100%; }
 
-/* ── ANIMATIONS ── */
+/* ── LOCK / UNLOCK SECTION ── */
+.lock-section {
+  padding:96px 56px;
+  background:var(--cream);
+  position:relative;
+  overflow:hidden;
+}
+.lock-section::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; bottom:0;
+  background:radial-gradient(ellipse at 50% 0%, rgba(116,198,157,0.06) 0%, transparent 65%);
+  pointer-events:none;
+}
+.lock-intro {
+  text-align:center;
+  max-width:600px;
+  margin:0 auto 64px;
+}
+.lock-intro .section-sub { max-width:100%; }
+.lock-intro .section-title em { font-style:italic; color:var(--green-mid); }
+
+/* Three step layout */
+.lock-steps {
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:0;
+  align-items:start;
+  max-width:960px;
+  margin:0 auto 48px;
+}
+
+/* Each step */
+.lock-step { display:flex; flex-direction:column; align-items:center; gap:16px; }
+
+.lock-step-badge {
+  display:flex; flex-direction:column; align-items:center; gap:4px;
+}
+.lock-step-num {
+  font-family:'Fraunces',serif; font-size:13px; font-weight:700;
+  color:var(--green); letter-spacing:1px;
+}
+.lock-step-label {
+  font-size:12px; font-weight:600; color:var(--muted);
+  text-transform:uppercase; letter-spacing:1px;
+  text-align:center;
+}
+
+/* Phone frame */
+.lock-phone-wrap { position:relative; }
+.lock-phone {
+  background:#111;
+  border-radius:28px;
+  padding:9px;
+  width:200px;
+  box-shadow:0 24px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.06);
+}
+.lock-screen {
+  border-radius:20px;
+  overflow:hidden;
+  background:#f5f5f5;
+}
+.lock-screen img {
+  width:100%; height:auto;
+  display:block;
+}
+
+/* Tags */
+.lock-tag {
+  position:absolute;
+  bottom:-12px; left:50%;
+  transform:translateX(-50%);
+  font-size:11px; font-weight:700;
+  padding:6px 16px; border-radius:100px;
+  white-space:nowrap; color:white;
+  box-shadow:0 4px 16px rgba(0,0,0,0.15);
+}
+.locked-tag { background:#8B6914; }
+.agent-tag { background:var(--green-dark); }
+.unlocked-tag { background:var(--green-mid); }
+
+.lock-step-desc {
+  font-size:13px; color:var(--muted);
+  text-align:center; line-height:1.6;
+  max-width:200px; margin-top:20px;
+}
+
+/* Arrows between steps */
+.lock-arrow {
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:8px; padding:0 8px;
+  margin-top:80px;
+}
+.lock-arrow-line {
+  width:1px; height:40px;
+  background:var(--cream-dark);
+}
+.lock-arrow-icon {
+  font-size:24px;
+  color:var(--green-light);
+}
+.lock-arrow-label {
+  font-size:11px; color:var(--muted);
+  text-align:center; line-height:1.5;
+  font-weight:500;
+}
+
+/* Bottom callout */
+.lock-callout {
+  display:flex; align-items:flex-start; gap:20px;
+  background:var(--green-dark);
+  border-radius:20px;
+  padding:32px 36px;
+  max-width:960px;
+  margin:0 auto;
+}
+.lock-callout-icon { font-size:32px; flex-shrink:0; }
+.lock-callout-text {
+  font-size:15px; color:rgba(255,255,255,0.6);
+  line-height:1.75;
+}
+.lock-callout-text strong { color:var(--green-light); }
+
+/* Mobile responsive */
+@media(max-width:900px){
+  .lock-section { padding:72px 24px; }
+  .lock-steps {
+    grid-template-columns:1fr;
+    gap:48px;
+  }
+  .lock-arrow { flex-direction:row; margin-top:0; }
+  .lock-arrow-line { width:40px; height:1px; }
+  .lock-arrow-label { display:none; }
+  .lock-callout { flex-direction:column; gap:12px; }
+}
+
 @keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
 .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease,transform 0.7s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
@@ -463,8 +598,8 @@ footer { background:var(--dark); padding:48px 56px; display:flex; align-items:ce
             <span class="device-pill pill-mobile" style="font-size:9px; padding:4px 10px;">📱 Client</span>
           </div>
           <div class="mobile-screen">
-            <!-- ★ REPLACE: src="IMG_5011.jpeg" -->
-            <img src="IMG_5011.jpeg" alt="Client Portal Mobile"
+            <!-- ★ REPLACE: src="client-home.jpeg" -->
+            <img src="client-home.jpeg" alt="Client Portal Mobile"
               onerror="this.style.background='#3A7D6F';">
           </div>
         </div>
@@ -579,37 +714,37 @@ footer { background:var(--dark); padding:48px 56px; display:flex; align-items:ce
   </div>
   <div class="screens-row">
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5018.jpeg" alt="Dashboard Mobile"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="agent-dashboard.jpeg" alt="Dashboard Mobile"></div></div>
       <div class="sc-title">📊 Dashboard</div>
       <div class="sc-desc">Stats and key actions — right on your phone screen.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5017.jpeg" alt="Sidebar"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="agent-sidebar.jpeg" alt="Sidebar"></div></div>
       <div class="sc-title">🗂️ Full Navigation</div>
       <div class="sc-desc">Every feature accessible from the sidebar menu.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5015.jpeg" alt="Follow-Up Tracker"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="agent-followup.jpeg" alt="Follow-Up Tracker"></div></div>
       <div class="sc-title">🔔 Follow-Up Tracker</div>
       <div class="sc-desc">Sorted by urgency with one-tap WhatsApp button.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5014.jpeg" alt="Birthdays"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="agent-birthdays.jpeg" alt="Birthdays"></div></div>
       <div class="sc-title">🎂 Birthday Tracker</div>
       <div class="sc-desc">All clients sorted by upcoming birthday. Never miss one.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5016.jpeg" alt="Post News"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="agent-news.jpeg" alt="Post News"></div></div>
       <div class="sc-title">📰 Post Market News</div>
       <div class="sc-desc">Publish updates direct to all your clients instantly.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5012.jpeg" alt="My Branding"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="agent-branding.jpeg" alt="My Branding"></div></div>
       <div class="sc-title">🎨 My Branding</div>
       <div class="sc-desc">Your portal name, colour, font — your identity.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5013.jpeg" alt="CPF FRS"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="agent-cpf-frs.jpeg" alt="CPF FRS"></div></div>
       <div class="sc-title">💰 CPF & FRS Reference</div>
       <div class="sc-desc">Built-in retirement sum table for instant CPF lookup.</div>
     </div>
@@ -625,39 +760,139 @@ footer { background:var(--dark); padding:48px 56px; display:flex; align-items:ce
   </div>
   <div class="screens-row">
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5011.jpeg" alt="Client Home"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="client-home.jpeg" alt="Client Home"></div></div>
       <div class="sc-title">🏠 Personalised Home</div>
       <div class="sc-desc">Greeting by name, your agent card, property details, Call & WhatsApp.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5010.jpeg" alt="Journey"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="client-journey.jpeg" alt="Journey"></div></div>
       <div class="sc-title">🗺️ Journey Timeline</div>
       <div class="sc-desc">Step-by-step milestones for HDB Sell, HDB Buy, Private, EC.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5009.jpeg" alt="Enquiries"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="client-enquiries.jpeg" alt="Enquiries"></div></div>
       <div class="sc-title">👁️ Enquiries & Viewings</div>
       <div class="sc-desc">Live enquiry count and viewing log. Clients always feel in the loop.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5008.jpeg" alt="Reports Pending"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="client-reports-locked.jpeg" alt="Reports Pending"></div></div>
       <div class="sc-title">🔒 Reports: Pre-Consult</div>
       <div class="sc-desc">Reports locked before your meeting — builds anticipation.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5025.jpeg" alt="Breakeven"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="client-breakeven.jpeg" alt="Breakeven"></div></div>
       <div class="sc-title">📊 Breakeven Analysis</div>
       <div class="sc-desc">Minimum sale price, CPF refunds, commission — auto-calculated.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5026.jpeg" alt="Affordability"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="client-affordability.jpeg" alt="Affordability"></div></div>
       <div class="sc-title">🏦 Affordability Report</div>
       <div class="sc-desc">Max HDB, EC, Private loan based on MAS MSR/TDSR rules.</div>
     </div>
     <div class="sc reveal">
-      <div class="sc-phone"><div class="sc-screen"><img src="IMG_5027.jpeg" alt="CPF Overview"></div></div>
+      <div class="sc-phone"><div class="sc-screen"><img src="client-cpf.jpeg" alt="CPF Overview"></div></div>
       <div class="sc-title">💰 CPF Overview</div>
       <div class="sc-desc">Per-owner CPF breakdown — OA balance, accrued interest, net CPF.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     LOCK / UNLOCK SECTION
+     Photos needed:
+     → client-reports-locked.jpeg   (already have — Reports Pending screen)
+     → client-breakeven.jpeg        (already have — Breakeven report screen)
+     → agent-edit-figures.jpeg      (already have — Ryan's Numbers edit screen)
+     → agent-figures-unlocked.jpeg  NEW — screenshot of the agent portal client
+                                    modal with the green "Unlocked" button showing
+                                    HOW: Open agent portal → click a client →
+                                    go to Reports tab → tap the Unlocked button
+                                    so it shows green "✓ Unlocked" state
+═══════════════════════════════════════════ -->
+<section class="lock-section">
+  <div class="lock-intro reveal">
+    <div class="section-label">The Wow Moment</div>
+    <h2 class="section-title">Reports locked.<br>Until <em>you</em> unlock them.</h2>
+    <p class="section-sub">When a client first logs in, their reports are locked — building anticipation before your consultation. After you enter their numbers and hit Unlock, their full personalised financial dashboard appears. No other agent in Singapore does this.</p>
+  </div>
+
+  <!-- Three step journey -->
+  <div class="lock-steps reveal">
+
+    <!-- Step 1: Client sees locked -->
+    <div class="lock-step">
+      <div class="lock-step-badge">
+        <span class="lock-step-num">01</span>
+        <span class="lock-step-label">Client logs in</span>
+      </div>
+      <div class="lock-phone-wrap">
+        <div class="lock-phone">
+          <div class="lock-screen">
+            <img src="client-reports-locked.jpeg" alt="Reports Locked">
+          </div>
+        </div>
+        <div class="lock-tag locked-tag">🔒 Reports Pending</div>
+      </div>
+      <p class="lock-step-desc">Client sees their portal is set up and waiting. Reports are locked — creating anticipation for the consultation.</p>
+    </div>
+
+    <!-- Arrow -->
+    <div class="lock-arrow reveal">
+      <div class="lock-arrow-line"></div>
+      <div class="lock-arrow-icon">→</div>
+      <div class="lock-arrow-line"></div>
+      <div class="lock-arrow-label">Agent enters<br>figures & unlocks</div>
+    </div>
+
+    <!-- Step 2: Agent unlocks -->
+    <div class="lock-step">
+      <div class="lock-step-badge">
+        <span class="lock-step-num">02</span>
+        <span class="lock-step-label">Agent enters numbers</span>
+      </div>
+      <div class="lock-phone-wrap">
+        <div class="lock-phone">
+          <div class="lock-screen">
+            <img src="agent-edit-figures.jpeg" alt="Agent Edit Figures">
+          </div>
+        </div>
+        <div class="lock-tag agent-tag">✏️ Agent Portal</div>
+      </div>
+      <p class="lock-step-desc">Agent enters CPF figures, outstanding loan, selling price. One tap to unlock — reports go live instantly.</p>
+    </div>
+
+    <!-- Arrow -->
+    <div class="lock-arrow reveal">
+      <div class="lock-arrow-line"></div>
+      <div class="lock-arrow-icon">🔓</div>
+      <div class="lock-arrow-line"></div>
+      <div class="lock-arrow-label">Client refreshes<br>portal</div>
+    </div>
+
+    <!-- Step 3: Client sees unlocked report -->
+    <div class="lock-step">
+      <div class="lock-step-badge">
+        <span class="lock-step-num">03</span>
+        <span class="lock-step-label">Client sees their report</span>
+      </div>
+      <div class="lock-phone-wrap">
+        <div class="lock-phone">
+          <div class="lock-screen">
+            <img src="client-breakeven.jpeg" alt="Reports Unlocked">
+          </div>
+        </div>
+        <div class="lock-tag unlocked-tag">🔓 Reports Live</div>
+      </div>
+      <p class="lock-step-desc">Their full personalised financial dashboard appears — breakeven, CPF, affordability. Prepared exclusively by their agent.</p>
+    </div>
+
+  </div>
+
+  <!-- Bottom callout -->
+  <div class="lock-callout reveal">
+    <div class="lock-callout-icon">💡</div>
+    <div class="lock-callout-text">
+      <strong>Why this works:</strong> Clients arrive at your consultation already curious and engaged. When you unlock their report in front of them — or after the meeting — it feels like a personalised financial briefing prepared just for them. That's the kind of professionalism that gets referrals.
     </div>
   </div>
 </section>
@@ -678,7 +913,7 @@ footer { background:var(--dark); padding:48px 56px; display:flex; align-items:ce
   <div class="split-visual">
     <div class="big-phone">
       <div class="phone-screen">
-        <img src="IMG_5015.jpeg" alt="Follow-Up Tracker">
+        <img src="agent-followup.jpeg" alt="Follow-Up Tracker">
       </div>
     </div>
     <div class="float-badge fb-tr">🔔 Due Today</div>
@@ -691,7 +926,7 @@ footer { background:var(--dark); padding:48px 56px; display:flex; align-items:ce
   <div class="split-visual reveal">
     <div class="big-phone">
       <div class="phone-screen">
-        <img src="IMG_5009.jpeg" alt="Enquiries">
+        <img src="client-enquiries.jpeg" alt="Enquiries">
       </div>
     </div>
     <div class="float-badge fb-tr" style="background:var(--gold);">26 Enquiries</div>
