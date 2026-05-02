@@ -6,7 +6,7 @@
 
 <!-- Primary SEO -->
 <title>HomeTracker | Consultation Software for Singapore Property Agents</title>
-<meta name="description" content="HomeTracker is the consultation system for Singapore property agents. Onboard clients, run CPF and affordability reports, track follow-ups, and walk into every meeting fully prepared. Free for 3 clients.">
+<meta name="description" content="HomeTracker is the consultation system for Singapore property agents. Onboard clients, run CPF and affordability reports, track follow-ups, and walk into every meeting fully prepared. Free to start, no credit card required.">
 <meta name="keywords" content="Singapore property agent software, property agent CRM Singapore, real estate consultation tool, CPF affordability calculator, MSR TDSR calculator, property agent client portal, real estate agent software Singapore, HDB private property consultation">
 <meta name="author" content="HomeTracker">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -415,6 +415,48 @@ nav {
 .trust-title { font-family:'Fraunces',serif; font-size:19px; font-weight:700; color:var(--green-dark); margin-bottom:10px; }
 .trust-desc { font-size:14px; color:var(--muted); line-height:1.7; }
 
+/* ── COMPARE ── */
+.compare { padding:96px 56px; background:var(--cream); }
+.compare-head { max-width:720px; margin-bottom:56px; }
+.compare-table { background:var(--white); border-radius:24px; overflow:hidden; border:1px solid var(--cream-dark); box-shadow:0 4px 24px rgba(13,27,20,0.04); }
+.compare-row { display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr 1.1fr; align-items:center; }
+.compare-row + .compare-row { border-top:1px solid var(--cream-dark); }
+.compare-row.head { background:var(--green-dark); }
+.compare-row.head > div { color:var(--white); font-size:12px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; padding:20px 18px; text-align:center; }
+.compare-row.head > div:first-child { text-align:left; color:rgba(255,255,255,0.4); }
+.compare-row.head .ht-col { background:var(--green); color:var(--white); position:relative; }
+.compare-row.head .ht-col::after { content:''; position:absolute; bottom:-1px; left:0; right:0; height:3px; background:var(--green-light); }
+.compare-cell { padding:18px; text-align:center; font-size:14px; color:var(--muted); }
+.compare-label { padding:18px 22px; text-align:left; font-weight:600; font-size:14px; color:var(--green-dark); font-family:'DM Sans',sans-serif; }
+.compare-cell.ht-col { background:rgba(116,198,157,0.08); color:var(--green-dark); font-weight:600; }
+.tick { color:var(--green); font-weight:700; font-size:18px; }
+.cross { color:#C97A7A; font-weight:600; font-size:18px; opacity:0.7; }
+.partial { font-size:12px; color:var(--muted); font-style:italic; }
+.compare-foot { margin-top:32px; padding:24px 28px; background:var(--green-dark); border-radius:16px; color:var(--white); font-size:15px; font-weight:300; line-height:1.6; max-width:820px; }
+.compare-foot strong { color:var(--green-light); font-weight:600; }
+@media(max-width:900px){
+  .compare-table { overflow-x:auto; display:block; }
+  .compare-row { grid-template-columns:1.4fr 1fr 1fr 1fr 1.1fr; min-width:780px; }
+}
+
+/* ── FOUNDER ── */
+.founder { padding:96px 56px; background:var(--green-dark); position:relative; overflow:hidden; }
+.founder::before { content:''; position:absolute; top:-150px; left:-150px; width:500px; height:500px; background:radial-gradient(circle,rgba(116,198,157,0.08) 0%,transparent 65%); pointer-events:none; }
+.founder-grid { display:grid; grid-template-columns:0.8fr 1.4fr; gap:64px; align-items:center; max-width:1100px; margin:0 auto; position:relative; z-index:1; }
+.founder-photo { width:100%; max-width:340px; aspect-ratio:1/1; border-radius:24px; background:var(--green); border:1px solid rgba(116,198,157,0.2); object-fit:cover; display:block; }
+.founder-photo-placeholder { width:100%; max-width:340px; aspect-ratio:1/1; border-radius:24px; background:linear-gradient(135deg,var(--green) 0%,var(--green-dark) 100%); border:1px solid rgba(116,198,157,0.2); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:96px; font-weight:300; color:var(--green-light); }
+.founder .section-label { color:var(--green-light); }
+.founder h2 { font-family:'Fraunces',serif; font-size:clamp(28px,4vw,46px); font-weight:700; line-height:1.15; letter-spacing:-1px; color:var(--white); margin-bottom:24px; }
+.founder h2 em { font-style:italic; color:var(--green-light); }
+.founder p { font-size:16px; color:rgba(255,255,255,0.75); line-height:1.75; margin-bottom:18px; font-weight:300; }
+.founder-sig { margin-top:28px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; gap:14px; }
+.founder-sig-name { font-family:'Fraunces',serif; font-size:18px; font-weight:700; color:var(--white); }
+.founder-sig-role { font-size:13px; color:rgba(255,255,255,0.5); margin-top:2px; }
+@media(max-width:768px){
+  .founder-grid { grid-template-columns:1fr; gap:32px; text-align:left; }
+  .founder-photo, .founder-photo-placeholder { max-width:200px; }
+}
+
 /* ── PRICING ── */
 .pricing { padding:96px 56px; background:var(--cream-dark); }
 .pricing-toggle { display:inline-flex; background:rgba(0,0,0,0.06); border-radius:100px; padding:4px; margin-bottom:48px; gap:4px; }
@@ -669,7 +711,7 @@ footer { background:var(--dark); padding:48px 56px; display:flex; align-items:ce
         <a href="https://agent.hometrackerapp.com" class="btn-primary">Start Free — No Card Needed →</a>
         <a href="#agent" class="btn-ghost">See the platform ↓</a>
       </div>
-      <p class="hero-note">Free forever for up to 3 clients · No credit card required</p>
+      <p class="hero-note">Free to start · No credit card · Set up in 2 minutes</p>
     </div>
     <div class="hero-devices">
       <!-- Desktop browser -->
@@ -1049,6 +1091,85 @@ footer { background:var(--dark); padding:48px 56px; display:flex; align-items:ce
   </div>
 </section>
 
+<!-- COMPARE -->
+<section class="compare">
+  <div class="compare-head">
+    <div class="section-label">Why HomeTracker</div>
+    <h2 class="section-title">Not a CRM. Not a calculator.<br>Not another app.</h2>
+    <p class="section-sub">HomeTracker is consultation infrastructure — built specifically for how Singapore property agents work. Here's how it compares to what most agents are using today.</p>
+  </div>
+
+  <div class="compare-table">
+    <div class="compare-row head">
+      <div></div>
+      <div>WhatsApp + Excel</div>
+      <div>Generic CRM</div>
+      <div>Mortgage Calculator</div>
+      <div class="ht-col">HomeTracker</div>
+    </div>
+
+    <div class="compare-row">
+      <div class="compare-label">Built for Singapore</div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell"><span class="partial">Partial</span></div>
+      <div class="compare-cell ht-col"><span class="tick">✓</span></div>
+    </div>
+
+    <div class="compare-row">
+      <div class="compare-label">CPF, MSR &amp; TDSR built in</div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell"><span class="partial">Affordability only</span></div>
+      <div class="compare-cell ht-col"><span class="tick">✓</span></div>
+    </div>
+
+    <div class="compare-row">
+      <div class="compare-label">Structured client onboarding</div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell"><span class="partial">Generic forms</span></div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell ht-col"><span class="tick">✓</span></div>
+    </div>
+
+    <div class="compare-row">
+      <div class="compare-label">Branded client portal</div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell ht-col"><span class="tick">✓</span></div>
+    </div>
+
+    <div class="compare-row">
+      <div class="compare-label">Breakeven &amp; cash proceeds reports</div>
+      <div class="compare-cell"><span class="partial">Manual Excel</span></div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell ht-col"><span class="tick">✓</span></div>
+    </div>
+
+    <div class="compare-row">
+      <div class="compare-label">Follow-up &amp; birthday tracking</div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell"><span class="tick">✓</span></div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell ht-col"><span class="tick">✓</span></div>
+    </div>
+
+    <div class="compare-row">
+      <div class="compare-label">Consultation prep workflow</div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell"><span class="cross">—</span></div>
+      <div class="compare-cell ht-col"><span class="tick">✓</span></div>
+    </div>
+  </div>
+
+  <div class="compare-foot">
+    Generic CRMs were built for sales pipelines in San Francisco. Mortgage calculators answer one question, once. WhatsApp keeps your business in your pocket — and out of your control. <strong>HomeTracker is the only system designed end-to-end for Singapore property consultations.</strong>
+  </div>
+</section>
+
 <!-- PROOF -->
 <section class="proof">
   <div class="section-label">What Agents Are Saying</div>
@@ -1068,6 +1189,28 @@ footer { background:var(--dark); padding:48px 56px; display:flex; align-items:ce
       <span class="proof-q">"</span>
       <p class="proof-text">I love the constant follow-up without being intrusive. Clients feel genuinely cared for.</p>
       <div class="proof-by">Property Consultant, Singapore</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder">
+  <div class="founder-grid">
+    <div>
+      <img src="/andik.jpg" alt="Andik Imran, founder of HomeTracker and property consultant in Singapore" class="founder-photo">
+    </div>
+    <div>
+      <div class="section-label">Built by an Agent</div>
+      <h2>I built HomeTracker because I needed it <em>myself.</em></h2>
+      <p>I'm a Singapore property consultant. Over the past 7 years and hundreds of consultations, I ran my business the same way most agents do — out of WhatsApp threads, half-finished spreadsheets, and notes scattered across three apps. Every consultation started from zero. Every follow-up depended on memory. Every CPF calculation was a manual job.</p>
+      <p>I knew there had to be a better way to run a property consultation — one that felt closer to how a private banker meets a client than how an agent chases a lead. So I built it. First for myself. Then for other consultants who wanted the same edge.</p>
+      <p>HomeTracker is built in Singapore, for Singapore. Every CPF rule, every BSD rate, every MSR/TDSR calculation reflects how property actually works here. If you've ever felt that generic CRMs and overseas tools weren't built for your business — you're right. This one is.</p>
+      <div class="founder-sig">
+        <div>
+          <div class="founder-sig-name">Andik Imran</div>
+          <div class="founder-sig-role">Founder, HomeTracker · Property Consultant, Singapore</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1155,7 +1298,7 @@ footer { background:var(--dark); padding:48px 56px; display:flex; align-items:ce
   <p>Join Singapore property agents already using HomeTracker to impress clients, close more deals, and build lasting relationships.</p>
   <div class="final-actions">
     <a href="https://agent.hometrackerapp.com" class="btn-primary" style="font-size:17px;padding:18px 44px;">Start Free Today →</a>
-    <p class="final-note">Free forever for up to 3 clients · No credit card · No commitment</p>
+    <p class="final-note">Free to start · No credit card · No commitment</p>
   </div>
 </section>
 
